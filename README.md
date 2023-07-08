@@ -5,7 +5,7 @@ This is a simple python wrapper for your Pluto Drone so that you can write your 
 
 Go ahead and pull up the terminal and type: 
 ```bash
-  git clone https://github.com/MalayPhadke/
+  git clone https://github.com/MalayPhadke/Pluto_Python_Wrapper
 ```
 
 

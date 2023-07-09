@@ -164,3 +164,6 @@ python voice_cmd.py
 Currently, the drone will arm when you speak 'hello'.
 It will take off on 'take off' and land on 'land'.
 Feel free to change it as you want.
+
+## Frequently Faced Errors
+

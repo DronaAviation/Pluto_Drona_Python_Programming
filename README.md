@@ -5,7 +5,7 @@ This is a simple python wrapper for your Pluto Drone so that you can write your 
 
 Go ahead and pull up the terminal and type: 
 ```bash
-  git clone https://github.com/MalayPhadke/
+  git clone https://github.com/MalayPhadke/Pluto_Python_Wrapper
 ```
 
 
@@ -164,3 +164,6 @@ python voice_cmd.py
 Currently, the drone will arm when you speak 'hello'.
 It will take off on 'take off' and land on 'land'.
 Feel free to change it as you want.
+
+## Frequently Faced Errors
+

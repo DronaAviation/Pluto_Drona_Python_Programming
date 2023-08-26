@@ -2,6 +2,23 @@ import os
 import sys
 import keyboard_control
 
+#####################################################
+# Key Controls
+# spacebar : arm or disarm
+# w : increase height
+# s : decrease height
+# q : take off
+# e : land
+# a : yaw left
+# d : yaw right
+# n: To enter developer mode
+# Up arrow : go forward
+# Down arrow : go backward
+# Left arrow : go left
+# Right arrow : go right
+# e: to quit
+#####################################################
+
 if os.name == 'nt':  # Windows
     import msvcrt
 
@@ -18,14 +35,14 @@ if os.name == 'nt':  # Windows
                     return '[D'  # Left arrow
                 elif key == b'M':
                     return '[C'  # Right arrow
-                else:
-                    return ''
+                # else:
+                #     return ''
             elif key == b'\x1b':  # Handle escape key
                 return key.decode('ascii')
             else:
                 return key.decode('ascii')
-        else:
-            return ''
+        # else:
+        #     return ''
 
 else:  # Unix-based systems (Linux, macOS, etc.)
     import tty
@@ -75,8 +92,8 @@ keyboard={  #dictionary containing the key pressed and value associated with it
 
 while True:
     key = getKey()
-    # print(key)
-    if key == '\x03':
+    # print(key) 
+    if key == 'e':
         print("stopping")
         break
     if key in keyboard.keys():

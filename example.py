@@ -5,7 +5,9 @@ import time
 
 my_pluto = pluto()
 
+print("Caution! Arming Motors...")
 my_pluto.arm()
 time.sleep(5)
+print("Disarming Motors...")
 my_pluto.disarm()
 exit()

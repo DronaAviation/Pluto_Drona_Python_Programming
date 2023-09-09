@@ -34,6 +34,7 @@ def identify_key(key):
     elif key == 160:
         my_pluto.right_yaw()
     elif key == 120:
-        my_pluto.rcAUX2 = 2000
+        print("Developer Mode ON")
+        my_pluto.rcAUX2 = 1500
 
 

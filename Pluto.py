@@ -12,11 +12,11 @@ class pluto():
         self.rcThrottle = 1500
         self.rcYaw = 1500
         self.rcAUX1 = 1500
-        self.rcAUX2 = 1500
+        self.rcAUX2 = 1000
         self.rcAUX3 = 1500
         self.rcAUX4 = 1000
         self.commandType = 0
-        self.droneRC = [1500,1500,1500,1500,1000,1000,1000,1000]
+        self.droneRC = [1500,1500,1500,1500,1500,1000,1500,1000]
         self.NONE_COMMAND = 0
         self.TAKE_OFF = 1
         self.LAND = 2
@@ -25,6 +25,7 @@ class pluto():
         
 
     def arm(self):
+        print("Arming")
         self.rcRoll = 1500
         self.rcYaw = 1500
         self.rcPitch = 1500
@@ -41,25 +42,32 @@ class pluto():
 		# self.isAutoPilotOn = 0
 
     def disarm(self):
+        print("Disarm")
         self.rcThrottle = 1300
         self.rcAUX4 = 1200
         
     def forward(self):
+        print("Forward")
         self.rcPitch = 1600
 
     def backward(self):
+        print("Backward")
         self.rcPitch =1300
 
     def left(self):
+        print("Left Roll")
         self.rcRoll =1200
 
     def right(self):
+        print("Right Roll")
         self.rcRoll =1600
 
     def left_yaw(self):
+        print("Left Yaw")
         self.rcYaw = 1300
 
     def right_yaw(self):
+        print("Right Yaw")
         self.rcYaw = 1600
 
     def reset(self):
@@ -70,14 +78,17 @@ class pluto():
         self.commandType = 0
 
     def increase_height(self):
+        print("Increasing height")
         self.rcThrottle = 1800
 
     def decrease_height(self):
+        print("Decreasing height")
         self.rcThrottle = 1300
 
     def take_off(self):
         self.disarm()
         self.box_arm()
+        print("take off")
         self.commandType = 1
 
     def land(self):
@@ -100,7 +111,7 @@ class pluto():
             self.droneRC[:] = self.rcValues()
 
             sendRequestMSP_SET_RAW_RC(self.droneRC)
-            # print(self.droneRC)
+            print(self.droneRC)
             sendRequestMSP_GET_DEBUG(requests)
 
             if (self.commandType != self.NONE_COMMAND):

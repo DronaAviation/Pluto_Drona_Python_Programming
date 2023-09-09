@@ -26,6 +26,7 @@ if os.name == 'nt':  # Windows
         if msvcrt.kbhit():
             key = msvcrt.getch()
             if key == b'\xe0':  # Check for arrow key
+                print("arrow key found")
                 key = msvcrt.getch()
                 if key == b'H':
                     return '[A'             
@@ -92,7 +93,8 @@ keyboard={  #dictionary containing the key pressed and value associated with it
 
 while True:
     key = getKey()
-    # print(key) 
+    if key is not None:
+        print(keyboard[key]) 
     if key == 'e':
         print("stopping")
         break
@@ -102,3 +104,4 @@ while True:
     else:
         msg = 80    
         keyboard_control.identify_key(msg)
+  

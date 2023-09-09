@@ -93,15 +93,13 @@ keyboard={  #dictionary containing the key pressed and value associated with it
 
 while True:
     key = getKey()
-    if key is not None:
-        print(keyboard[key]) 
     if key == 'e':
         print("stopping")
         break
     if key in keyboard.keys():
         msg = keyboard[key]
         keyboard_control.identify_key(msg)
-    else:
+    else: 
         msg = 80    
         keyboard_control.identify_key(msg)
   

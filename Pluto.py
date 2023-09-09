@@ -111,7 +111,7 @@ class pluto():
             self.droneRC[:] = self.rcValues()
 
             sendRequestMSP_SET_RAW_RC(self.droneRC)
-            print(self.droneRC)
+            # print(self.droneRC)
             sendRequestMSP_GET_DEBUG(requests)
 
             if (self.commandType != self.NONE_COMMAND):

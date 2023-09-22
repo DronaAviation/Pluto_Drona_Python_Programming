@@ -1,7 +1,7 @@
 import os
 import sys
 import keyboard_control
-
+import keyboard
 #####################################################
 # Key Controls
 # spacebar : arm or disarm
@@ -20,31 +20,23 @@ import keyboard_control
 #####################################################
 
 if os.name == 'nt':  # Windows
-    import msvcrt
-
     def getKey():
-        if msvcrt.kbhit():
-            key = msvcrt.getch()
-            if key == b'\xe0':  # Check for arrow key
-                print("arrow key found")
-                key = msvcrt.getch()
-                if key == b'H':
-                    return '[A'             
-                elif key == b'P':
-                    return '[B'  # Down arrow
-                elif key == b'K':
-                    return '[D'  # Left arrow
-                elif key == b'M':
-                    return '[C'  # Right arrow
-                # else:
-                #     return ''
-            elif key == b'\x1b':  # Handle escape key
-                return key.decode('ascii')
-            else:
-                return key.decode('ascii')
-        # else:
-        #     return ''
+        event = keyboard.read_event()
+        key = event.name
+        if event.event_type == keyboard.KEY_DOWN:
+            if key == 'up':
+                key = '[A'
+            elif key == 'down':
+                key = '[B'
+            elif key == 'left':
+                key = '[D'
+            elif key == 'right':
+                key = '[C'
+            elif key == 'space':
+                key = ' '
 
+            # print(key)
+            return key
 else:  # Unix-based systems (Linux, macOS, etc.)
     import tty
     import termios
@@ -69,7 +61,7 @@ else:  # Unix-based systems (Linux, macOS, etc.)
 
 
 
-keyboard={  #dictionary containing the key pressed and value associated with it
+keyboard_cmds={  #dictionary containing the key pressed and value associated with it
                       '[A': 10,
                       '[D': 30,
                       '[C': 40,
@@ -96,9 +88,9 @@ while True:
     if key == 'e':
         print("stopping")
         break
-    if key in keyboard.keys():
-        msg = keyboard[key]
-        keyboard_control.identify_key(msg)
+    if key in keyboard_cmds.keys():
+        msg = keyboard_cmds[key]
+        keyboard_control.identify_key(msg)  
     else: 
         msg = 80    
         keyboard_control.identify_key(msg)

@@ -11,36 +11,35 @@ Go ahead and pull up the terminal and type:
 
 ## Usage
 
-The Pluto.py has the class with which we need to create drone Object. Look into the example script and replicate the same. The script arms the drone and keeps it spinning for 5 seconds before disarming.
+The `drone.py` script provides a wrapper class for controlling the drone. To use the wrapper, follow the instructions below:
 
-In the script, my_pluto is the object created. Assuming that the name of the object created is my_pluto, follow the lines below for using the wrapper.
+   ```python
+   from drone import drone
+   my_pluto = drone()
 
-```python
-To arm : my_pluto.arm()
+   Connect The drone:  my_pluto.connect() 
 
-To disarm : my_pluto.disarm()
+   my_pluto.trim(Roll, Pitch, Throttle, Yaw)
 
-To Takeoff : my_pluto.take_off()
+   Trim the drone:  my_pluto.trim(Roll, Pitch, Throttle, Yaw)
+   #Example: my_pluto.trim(0, 0, 0, 0)
+  
+   Arm the drone:  my_pluto.arm()
+   Disarm the drone:  my_pluto.disarm()
 
-To land : my_pluto.land()
+   Set throttle speed:  my_pluto.throttle_speed(value, Duration)
+   #Example: my_pluto.throttle_speed(5, 1) # Increase throttle speed by 5 for 1 second
 
-To move the drone forward() : my_pluto.forward()
+   Takeoff:  my_pluto.takeoff()
+   Land the drone:  my_pluto.land()
 
-To move the drone backward() : my_pluto.backward()
-
-To move the drone left : my_pluto.left()
-
-To move the drone right : my_pluto.right()
-
-To rotate the drone right : my_pluto.right_yaw()
-
-To rotate the drone left : my_pluto.left_yaw()
-```
-ENSURE YOU WRITE ALL THE PYTHON FILES IN THE SAME DIRECTORY WHERE plutoMultiwii and Pluto SCRIPTS ARE PRESENT
-
-YOU WILL NOT NEED PLUTO_WRAPPER DIRECTORY displayed here. You will only need Pluto.py and plutoMultiwii.py
-
-They other python script are also created to control your drone with a keyboard or a joystick.
+  Roll, Pitch, Yaw:
+  Functions like roll_speed, pitch_speed, and yaw_speed are available for controlling the drone's movements.
+  my_pluto.roll_speed(50, 2)   # Increase roll speed by 50 for 2 sec
+  my_pluto.pitch_speed(50, 2)  # Increase pitch speed by 50 for 2 sec
+  my_pluto.yaw_speed(50, 2)    # Increase yaw speed by 50 for 2 sec
+  ```
+   
 
 
 ## Installation
